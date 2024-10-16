@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #FEF9F2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Part */
+header{
+    width: 100%;
+}
+
+header h1{
+    background-color: black;
+    color: #FEF9F2;
+    text-align: center;
+    padding: 10px;
+    text-decoration: underline;
+}
+header .head{
+    background-color: #fac78c;
+    width: 100%;
+}
+
+.head nav{
+    display: flex;
+    position: relative;
+    left: 70%;
+    translate: -10%;
+    width: 300px;
+    gap: 20px;
+    height: 30px;
+    padding: 10px;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+    /* padding-left: 60%; */
+}
+.head nav a{
+    color: black;
+    text-decoration: none;
+}
+
+
+main{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Home page body */
+.img{
+    width: 100%;
+}
+.img img{
+    margin-top: 30px;
+    width: 100%;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+main p{
+    margin-top: 10px;
+    text-align: justify;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+/* Login Page form */
+
+.login_form, .sign_form{
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 1px 1px 10px 1px;
+    gap: 5px;
+}
+
+.login_form label, .sign_form label{
+    font-weight: 900;
+    margin-top: 5px;
+}
+.login_form input, .sign_form input{
+    height: 30px;
+    padding-left: 5px;
+    font-weight: 600;
+}
+
+.login_form button, .sign_form button{
+    height: 30px;
+    background-color: #fac78c;
+    border-radius: 5px;
+    font-weight: 800;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.login_form p, .sign_form p{
+    font-size: 13px;
+}
+

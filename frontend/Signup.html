@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Assets/diya.jpg">
+    <link rel="stylesheet" href="style.css">
+    <title>Sonkahli High School</title>
+</head>
+<body>
+    <header>
+        <h1>Sonakhali High School</h1>
+        <div class="head">
+            <nav>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="Login.html">Login / Signup</a></p>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <form class="sign_form" id="sign_form">
+            <label for="sign_name">Name:</label>
+            <input type="text" name="name" id="sign_name" required>
+            <label for="sign_class">Class</label>
+            <input type="number" name="class" id="sign_class" required>
+            <label for="sign_password">Password:</label>
+            <input type="password" name="password" id="sign_password" required>
+            <label for="sign_confirm_password">Confirm Password:</label>
+            <input type="text" name="confirm_password" id="sign_confirm_password" required>
+            <button type="submit">SignUp</button>
+            <p>If You are a old user then, <a href="Login.html">Login</a></p>
+        </form>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
