@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Assets/diya.jpg">
+    <link rel="stylesheet" href="style.css">
+    <title>Sonakhali High School</title>
+</head>
+<body>
+    <header>
+        <h1>Sonakhali High School</h1>
+        <div class="head">
+            <nav>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="Login.html">Login / Signup</a></p>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="profile_card">
+            
+            <h3>Hi, <span id="name"></span><img id="hi" src="./Assets/wave.png" alt="hi.png"></h3>
+            <h4>Name: </h4><span id="stu_name"></span>
+            <h4>Class: </h4><span id="stu_class"></span>
+        </div>
+    </main>
+
+    <script>
+        // Function to get query parameters
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Use the function to get the user's name and class
+        const userName = getQueryParameter('name');
+        const userClass = getQueryParameter('class');
+
+        // Displaying user information
+        if (userName) {
+            document.getElementById('name').innerText = userName;
+            document.getElementById('stu_name').innerText = userName;
+        } else {
+            document.getElementById('stu_name').innerText = "Unknown User";
+        }
+
+        if (userClass) {
+            document.getElementById('stu_class').innerText = userClass;
+        } else {
+            document.getElementById('stu_class').innerText = "Not specified";
+        }
+    </script>
+</body>
+</html>

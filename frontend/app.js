@@ -5,26 +5,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const name = document.getElementById("name");
             const password = document.getElementById("password");
-            if(password.value.length()<8){
-                return alert("Password should be contained minimum 8 charecter.")
+
+            // Adjust the minimum password length alert
+            if (password.value.length < 4) {
+                return alert("Password should contain a minimum of 4 characters.");
             }
-            const stu = {
-                name: name.value,
-                password: password.value
-            };
+
+            // Send login request
             await fetch("http://localhost:4000/api/student/login", {
-                body: {
-                    student
-                }
-            }).then(res => {
+                method: "POST",
+                body: JSON.stringify({ name: name.value, pass: password.value }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(res => {
                 if (!res.ok) {
                     throw new Error("Network doesn't work.");
                 }
                 return res.json();
-            }).then(data => {
-                console.log(data);
-            }).catch(err => {
-                return console.log("an error:- ", err);
+            })
+            .then(data => {
+                if (data) {
+                    window.location.href = `profile.html?name=${encodeURIComponent(data.name)}&class=${encodeURIComponent(data.stu_class)}`;
+                } else {
+                    alert("Login failed: " + data.message);
+                }
+            })
+            .catch(err => {
+                return alert("User not found..");
             });
             name.value = "";
             password.value = "";
@@ -34,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
+
 document.getElementById('sign_form').addEventListener('submit', async (event) => {
     event.preventDefault();
     const name = document.getElementById("sign_name");
@@ -41,11 +50,11 @@ document.getElementById('sign_form').addEventListener('submit', async (event) =>
     const sign_class = document.getElementById("sign_class");
     const com_password = document.getElementById("sign_confirm_password");
 
-    if(sign_class.value<1 && sign_class.value>12){
-        return alert("Class should be between 1 - 12");
+    if (sign_class.value < 1 || sign_class.value > 12) {
+        return alert("Class should be between 1 and 12.");
     }
-    if(password.value.length()<8){
-        return alert("Password should be contained minimum 8 charecter.")
+    if (password.value.length < 4) {
+        return alert("Password should contain a minimum of 4 characters.");
     }
     if (password.value === com_password.value) {
         const student = {
@@ -56,25 +65,23 @@ document.getElementById('sign_form').addEventListener('submit', async (event) =>
         };
         await fetch("http://localhost:4000/api/student/signup", {
             method: 'post',
-            body: {
-                student
-            }
+            body: JSON.stringify(student),
+            headers: { 'Content-Type': 'application/json' }
         }).then(res => {
             if (!res.ok) {
                 throw new Error("Network doesn't work.");
             }
             return res.json();
         }).then(data => {
-            console.log(data);
+            alert("Data saved successfully...");
         }).catch(err => {
-            return console.log("an error:- ", err);
+            return console.log("An error occurred: ", err);
         });
         name.value = "";
         sign_class.value = "";
         password.value = "";
         com_password.value = "";
-    }
-    else{
-        return alert("passwords are not matched.")
+    } else {
+        return alert("Passwords do not match.");
     }
 });

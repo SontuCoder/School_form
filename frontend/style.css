@@ -10,6 +10,7 @@ body{
     align-items: center;
 }
 
+
 /* Header Part */
 header{
     width: 100%;
@@ -111,3 +112,40 @@ main p{
     font-size: 13px;
 }
 
+
+
+/* Profile */
+
+.profile_card{
+    margin-top: 20px;
+    box-shadow: 1px 1px 10px 1px #ff8800;
+    height: 150px;
+    width: 200px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.profile_card h3{
+    font-size: 30px;
+}
+
+.profile_card h3 span{
+    font-size: 20px;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.profile_card h3 #hi{
+    height: 20px;
+    margin-left: 10px;
+}
+
+.profile_card h4{
+    margin-top: 10px;
+    font-size: 20px;
+    text-decoration: underline;
+}
+.profile_card span{
+    font-size: 15px;
+    font-weight: 800;
+}
